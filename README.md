@@ -1,0 +1,2 @@
+# ddd-core
+DDD Core

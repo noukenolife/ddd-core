@@ -2,6 +2,8 @@ package noukenolife.dddcore.domain.api.lifecycle
 
 import noukenolife.dddcore.domain.api.model.{Entity, Id}
 
+import scala.language.higherKinds
+
 /**
   * Repository API
   *
@@ -18,7 +20,7 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return a resolved entity
     */
-  def resolve(id: I)(implicit ctx: EntityIOContext): M[E]
+  def resolve(id: I)(implicit ctx: IOContext): M[E]
 
   /**
     * Store an entity
@@ -27,7 +29,7 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return
     */
-  def store(entity: E)(implicit ctx: EntityIOContext): M[Unit]
+  def store(entity: E)(implicit ctx: IOContext): M[Unit]
 
   /**
     * Delete an entity by id
@@ -36,5 +38,5 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return
     */
-  def delete(id: I)(implicit ctx: EntityIOContext): M[Unit]
+  def delete(id: I)(implicit ctx: IOContext): M[Unit]
 }

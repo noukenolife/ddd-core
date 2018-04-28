@@ -1,6 +1,6 @@
 package noukenolife.dddcore.domain.api.lifecycle.future
 
-import noukenolife.dddcore.domain.api.lifecycle.{EntityIOContext, EntityNotFoundException, FakeEntityIOContext}
+import noukenolife.dddcore.domain.api.lifecycle.{IOContext, EntityNotFoundException, FakeIOContext}
 import noukenolife.dddcore.domain.api.model.{FakeEntity, FakeId}
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 class FakeRepositorySpec extends WordSpec with Matchers with ScalaFutures {
 
-  implicit val ctx: EntityIOContext = FakeEntityIOContext
+  implicit val ctx: IOContext = FakeIOContext
   val repo = new FakeRepository(Map(
     FakeId(1l) -> FakeEntity(FakeId(1l), "Value1")
   ))

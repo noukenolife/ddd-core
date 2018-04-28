@@ -1,12 +1,12 @@
 package noukenolife.dddcore.domain.api.lifecycle.io
 
-import noukenolife.dddcore.domain.api.lifecycle.{EntityIOContext, EntityNotFoundException, FakeEntityIOContext}
+import noukenolife.dddcore.domain.api.lifecycle.{IOContext, EntityNotFoundException, FakeIOContext}
 import noukenolife.dddcore.domain.api.model.{FakeEntity, FakeId}
 import org.scalatest.{Matchers, WordSpec}
 
 class FakeRepositorySpec extends WordSpec with Matchers {
 
-  implicit val ctx: EntityIOContext = FakeEntityIOContext
+  implicit val ctx: IOContext = FakeIOContext
   val repo = new FakeRepository(Map(
     FakeId(1l) -> FakeEntity(FakeId(1l), "Value1")
   ))

@@ -1,4 +1,4 @@
-package noukenolife.dddcore.domain.api.lifecycle
+package noukenolife.ddd.domain.api.lifecycle
 
 /**
   * Entity not found exception

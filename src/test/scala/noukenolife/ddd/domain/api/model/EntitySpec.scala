@@ -1,4 +1,4 @@
-package noukenolife.dddcore.domain.api.model
+package noukenolife.ddd.domain.api.model
 
 import org.scalatest.{Matchers, WordSpec}
 

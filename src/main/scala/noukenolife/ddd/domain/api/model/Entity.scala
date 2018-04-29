@@ -1,4 +1,4 @@
-package noukenolife.dddcore.domain.api.model
+package noukenolife.ddd.domain.api.model
 
 trait Entity[I <: Id[_]] extends Equals {
   def id: I

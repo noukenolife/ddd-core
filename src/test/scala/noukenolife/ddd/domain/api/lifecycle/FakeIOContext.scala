@@ -1,3 +1,3 @@
-package noukenolife.dddcore.domain.api.lifecycle
+package noukenolife.ddd.domain.api.lifecycle
 
 case object FakeIOContext extends IOContext

@@ -1,7 +1,7 @@
-package noukenolife.dddcore.domain.api.lifecycle.future
+package noukenolife.ddd.domain.api.lifecycle.future
 
-import noukenolife.dddcore.domain.api.lifecycle.{IOContext, EntityNotFoundException, FakeIOContext}
-import noukenolife.dddcore.domain.api.model.{FakeEntity, FakeId}
+import noukenolife.ddd.domain.api.lifecycle.{EntityNotFoundException, FakeIOContext, IOContext}
+import noukenolife.ddd.domain.api.model.{FakeEntity, FakeId}
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
 

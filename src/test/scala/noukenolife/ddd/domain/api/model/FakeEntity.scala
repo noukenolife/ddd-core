@@ -1,3 +1,3 @@
-package noukenolife.dddcore.domain.api.model
+package noukenolife.ddd.domain.api.model
 
 case class FakeEntity(id: FakeId, value: String) extends Entity[FakeId]

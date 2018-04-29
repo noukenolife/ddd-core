@@ -1,6 +1,6 @@
-package noukenolife.dddcore.domain.api.lifecycle
+package noukenolife.ddd.domain.api.lifecycle
 
-import noukenolife.dddcore.domain.api.model.{Entity, Id}
+import noukenolife.ddd.domain.api.model.{Entity, Id}
 
 import scala.language.higherKinds
 

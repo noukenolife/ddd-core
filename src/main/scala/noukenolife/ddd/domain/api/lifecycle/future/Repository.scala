@@ -1,7 +1,7 @@
-package noukenolife.dddcore.domain.api.lifecycle.future
+package noukenolife.ddd.domain.api.lifecycle.future
 
-import noukenolife.dddcore.domain.api.lifecycle.{Repository => BaseRepository}
-import noukenolife.dddcore.domain.api.model.{Entity, Id}
+import noukenolife.ddd.domain.api.model.{Entity, Id}
+import noukenolife.ddd.domain.api.lifecycle.{Repository => BaseRepository}
 
 import scala.concurrent.{ExecutionContext, Future}
 

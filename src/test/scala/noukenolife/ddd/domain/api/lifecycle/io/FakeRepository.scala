@@ -1,8 +1,8 @@
-package noukenolife.dddcore.domain.api.lifecycle.io
+package noukenolife.ddd.domain.api.lifecycle.io
 
 import cats.effect.IO
-import noukenolife.dddcore.domain.api.lifecycle.{IOContext, EntityNotFoundException}
-import noukenolife.dddcore.domain.api.model.{FakeEntity, FakeId}
+import noukenolife.ddd.domain.api.lifecycle.{EntityNotFoundException, IOContext}
+import noukenolife.ddd.domain.api.model.{FakeEntity, FakeId}
 
 class FakeRepository(var entityMap: Map[FakeId, FakeEntity] = Map.empty) extends Repository[FakeId, FakeEntity] {
 

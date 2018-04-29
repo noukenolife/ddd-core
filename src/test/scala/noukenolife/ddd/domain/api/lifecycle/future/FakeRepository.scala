@@ -1,7 +1,7 @@
-package noukenolife.dddcore.domain.api.lifecycle.future
+package noukenolife.ddd.domain.api.lifecycle.future
 
-import noukenolife.dddcore.domain.api.lifecycle.{IOContext, EntityNotFoundException}
-import noukenolife.dddcore.domain.api.model.{FakeEntity, FakeId}
+import noukenolife.ddd.domain.api.lifecycle.{EntityNotFoundException, IOContext}
+import noukenolife.ddd.domain.api.model.{FakeEntity, FakeId}
 
 import scala.concurrent.{ExecutionContext, Future}
 

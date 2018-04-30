@@ -9,9 +9,8 @@ import scala.language.higherKinds
   *
   * @tparam I entity id type
   * @tparam E entity type
-  * @tparam M result monad
   */
-trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
+trait Repository[I <: Id[_], E <: Entity[I], F[_]] {
 
   /**
     * Resolve by id
@@ -20,7 +19,7 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return a resolved entity
     */
-  def resolve(id: I)(implicit ctx: IOContext): M[E]
+  def resolve(id: I)(implicit ctx: IOContext): IOResult[E, F]
 
   /**
     * Store an entity
@@ -29,7 +28,7 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return
     */
-  def store(entity: E)(implicit ctx: IOContext): M[Unit]
+  def store(entity: E)(implicit ctx: IOContext): IOResult[Unit, F]
 
   /**
     * Delete an entity by id
@@ -38,5 +37,5 @@ trait Repository[I <: Id[_], E <: Entity[I], M[_]] {
     * @param ctx IO context
     * @return
     */
-  def delete(id: I)(implicit ctx: IOContext): M[Unit]
+  def delete(id: I)(implicit ctx: IOContext): IOResult[Unit, F]
 }

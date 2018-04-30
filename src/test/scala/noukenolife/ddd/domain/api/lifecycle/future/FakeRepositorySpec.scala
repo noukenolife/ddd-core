@@ -16,15 +16,15 @@ class FakeRepositorySpec extends WordSpec with Matchers with ScalaFutures {
 
   "A FakeFutureRepository" must {
     "resolve an entity" in {
-      whenReady(repo.resolve(FakeId(1l)))(_ shouldEqual FakeEntity(FakeId(1l), "Value1"))
+      whenReady(repo.resolve(FakeId(1l)).result)(_ shouldEqual FakeEntity(FakeId(1l), "Value1"))
     }
     "not resolve an entity" in {
-      whenReady(repo.resolve(FakeId(3l)).failed) {
+      whenReady(repo.resolve(FakeId(3l)).result.failed) {
         _ shouldBe a[EntityNotFoundException]
       }
     }
     "store a new entity" in {
-      whenReady(repo.store(FakeEntity(FakeId(2l), "Value2"))) { r =>
+      whenReady(repo.store(FakeEntity(FakeId(2l), "Value2")).result) { r =>
         repo.entityMap shouldEqual Map(
           FakeId(1l) -> FakeEntity(FakeId(1l), "Value1"),
           FakeId(2l) -> FakeEntity(FakeId(2l), "Value2")
@@ -32,7 +32,7 @@ class FakeRepositorySpec extends WordSpec with Matchers with ScalaFutures {
       }
     }
     "update an entity" in {
-      whenReady(repo.store(FakeEntity(FakeId(2l), "New Value2"))) { r =>
+      whenReady(repo.store(FakeEntity(FakeId(2l), "New Value2")).result) { r =>
         repo.entityMap shouldEqual Map(
           FakeId(1l) -> FakeEntity(FakeId(1l), "Value1"),
           FakeId(2l) -> FakeEntity(FakeId(2l), "New Value2")
@@ -40,7 +40,7 @@ class FakeRepositorySpec extends WordSpec with Matchers with ScalaFutures {
       }
     }
     "delete an entity" in {
-      whenReady(repo.delete(FakeId(2l))) { r =>
+      whenReady(repo.delete(FakeId(2l)).result) { r =>
         repo.entityMap shouldEqual Map(
           FakeId(1l) -> FakeEntity(FakeId(1l), "Value1")
         )

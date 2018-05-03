@@ -13,29 +13,29 @@ class FakeRepositorySpec extends WordSpec with Matchers {
 
   "A FakeIORepository" must {
     "resolve an entity" in {
-      repo.resolve(FakeId(1l)).result.unsafeRunSync shouldEqual FakeEntity(FakeId(1l), "Value1")
+      repo.resolve(FakeId(1l)).unsafeRunSync shouldEqual FakeEntity(FakeId(1l), "Value1")
     }
     "not resolve an entity" in {
       a[EntityNotFoundException] shouldBe thrownBy {
-        repo.resolve(FakeId(3l)).result.unsafeRunSync
+        repo.resolve(FakeId(3l)).unsafeRunSync
       }
     }
     "store a new entity" in {
-      repo.store(FakeEntity(FakeId(2l), "Value2")).result.unsafeRunSync
+      repo.store(FakeEntity(FakeId(2l), "Value2")).unsafeRunSync
       repo.entityMap shouldEqual Map(
         FakeId(1l) -> FakeEntity(FakeId(1l), "Value1"),
         FakeId(2l) -> FakeEntity(FakeId(2l), "Value2")
       )
     }
     "update an entity" in {
-      repo.store(FakeEntity(FakeId(2l), "New Value2")).result.unsafeRunSync
+      repo.store(FakeEntity(FakeId(2l), "New Value2")).unsafeRunSync
       repo.entityMap shouldEqual Map(
         FakeId(1l) -> FakeEntity(FakeId(1l), "Value1"),
         FakeId(2l) -> FakeEntity(FakeId(2l), "New Value2")
       )
     }
     "delete an entity" in {
-      repo.delete(FakeId(2l)).result.unsafeRunSync
+      repo.delete(FakeId(2l)).unsafeRunSync
       repo.entityMap shouldEqual Map(
         FakeId(1l) -> FakeEntity(FakeId(1l), "Value1")
       )
